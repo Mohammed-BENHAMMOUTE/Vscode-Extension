@@ -1,0 +1,175 @@
+:root {
+  --font-family: var(--vscode-font-family);
+  --font-size: var(--vscode-font-size);
+  --focusBorder: var(--vscode-focusBorder);
+  --background: var(--vscode-editor-background);
+  --foreground: var(--vscode-editor-foreground);
+  --inputBackground: var(--vscode-input-background);
+  --inputForeground: var(--vscode-input-foreground);
+  --inputPlaceholderForeground: var(--vscode-input-placeholderForeground);
+  --buttonBackground: var(--vscode-button-background);
+  --buttonForeground: var(--vscode-button-foreground);
+  --buttonHoverBackground: var(--vscode-button-hoverBackground);
+  --listHoverBackground: var(--vscode-list-hoverBackground);
+  --disabledForeground: var(--vscode-disabledForeground);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  background-color: var(--vscode-sideBar-background);
+  padding: 20px;
+  min-width: 300px;
+}
+
+.todo-list {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+.todo-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 10px;
+  background-color: var(--listHoverBackground);
+  margin-bottom: 7px;
+  border-radius: 5px;
+  color: var(--foreground);
+  border: none;
+  position: relative;
+}
+
+.todo-list li.done {
+  text-decoration: line-through;
+  color: var(--disabledForeground);
+}
+
+.task-txt {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  max-height: calc(1.2em * 3);
+  line-height: 1.2em;
+  margin: 0 10px;
+  overflow: hidden;
+}
+
+.btns{
+  display: flex;
+  flex: 0 0 auto; 
+  flex-wrap: nowrap;
+  gap: 5px;
+}
+
+.todo-list .edit-btn,
+.todo-list .pin-btn,
+.todo-list .delete-btn {
+  display: none;
+}
+
+.todo-list .btns:hover .three-dots-btn {
+  display: none;
+}
+
+.todo-list .btns:hover .edit-btn, 
+.todo-list .btns:hover .pin-btn, 
+.todo-list .btns:hover .delete-btn {
+  display: inline;
+
+}
+
+.editing {
+  outline: 1px solid var(--focusBorder);
+}
+
+.todo-list .three-dots-btn{
+  background-color: transparent !important;
+
+}
+
+.todo-list .three-dots-btn,
+.todo-list .edit-btn,
+.todo-list .pin-btn,
+.todo-list .delete-btn {
+  background-color: var(--buttonBackground);
+  color: var(--buttonForeground);
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: all 200ms;
+}
+
+.todo-list .delete-btn:hover,
+.todo-list .pin-btn:hover,
+.todo-list .edit-btn:hover {
+  background-color: var(--buttonHoverBackground);
+}
+
+.three-dots-icon,
+.edit-icon,
+.editing-icon,
+.pin-icon,
+.pinned-icon,
+.delete-icon {
+  width: calc(var(--vscode-font-size) + 5px);
+  height: calc(var(--vscode-font-size) + 5px);
+  vertical-align: middle;
+  fill: var(--foreground);
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+  padding-top: 10px;
+}
+
+#new-task-input {
+  flex-grow: 1;
+  padding: 10px;
+  background-color: var(--inputBackground);
+  border: none;
+  border-radius: 5px;
+  color: var(--inputForeground);
+  margin-right: 10px;
+}
+
+#new-task-input::placeholder {
+  color: var(--inputPlaceholderForeground);
+}
+
+.add-btn {
+  background-color: var(--buttonBackground);
+  color: var(--buttonForeground);
+  border: none;
+  padding: 10px;
+  width: 38px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: all 300ms;
+}
+
+.add-btn:hover {
+  background-color: var(--buttonHoverBackground);
+}
